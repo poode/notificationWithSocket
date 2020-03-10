@@ -8,17 +8,11 @@ exports.processMatch = async function processMatch(subscription, signaledTopic) 
     body: `${subscription.topic} topic has new changes happened at: ${new Date()}`
   }
   // Send alert
-  console.log('Alert sent to subscripers!! ==>', opts)
-  // const socket = await getSocket();
-  // socket.join(subscription.username, () => {
-  //   const rooms = Object.keys(socket.rooms);
-  //   console.log(rooms);
-    io.to(subscription.username).emit('newChange', opts);
-  // });
+  console.log('Alert sent to subscripers!! ==>', opts);
+  io.to(subscription.username).emit('newChange', opts);
 }
 
 io.on('connection', socket => {
-  // console.log(socket);
   socket.on('username', user => {
     console.log(user);
     socket.join(user.username, () => {

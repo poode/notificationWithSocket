@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+    integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+
+    <script>
+      const username = 'abdulazeem'
+      const server = io('http://localhost:3000');
+
+      server.emit('username', { username });
+
+      server.on('newChange', data => {
+      console.log(`${username} notification`, data);
+      });
+
+
+    </script>
+</body>
+</html>

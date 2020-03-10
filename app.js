@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/topics', eventRouter);
-app.use('/signals', signalRouter);
+app.use('/signal', signalRouter);
 app.use('/subscribe', subscripeRouter);
 
 app.use('*', (req, res, next) => {
